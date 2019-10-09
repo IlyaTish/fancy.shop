@@ -1,0 +1,12 @@
+.header__phone
+  display: flex
+  align-items: center
+  cursor: pointer
+  &:hover
+    .arrow
+      animation: phone-anim .3s
+    .accent-text
+      color: darken($main, 10%)
+      border-bottom: 2px dotted darken($main, 10%)
+
+@import __num/header__phone__num

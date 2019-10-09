@@ -30,6 +30,7 @@
 {% endif %}
 <meta property="og:site_name" content="{{ name }}">
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="catalog/view/theme/fancy.shop/css/libs.min.css">
 <link rel="stylesheet" href="catalog/view/theme/fancy.shop/css/stylesheet.min.css">
 {% for style in styles %}
 <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}">
@@ -45,7 +46,77 @@
 {{ analytic }}
 {% endfor %}
 </head>
+
 <body>
   <header class="header">
-    
+    <div class="header__cont">
+      <div class="header__logo">
+        {% if logo %}
+          {% if home == og_url %}
+            <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}">
+          {% else %}
+            <a href="{{ home }}">
+              <img src="{{ logo }}" title="{{ name }}" alt="{{ name }}">
+            </a>
+          {% endif %}
+        {% else %}
+          <h1><a href="{{ home }}">{{ name }}</a></h1>
+        {% endif %}
+      </div>
+
+      <div class="header__phone">
+        <div class="header__phone-icon">
+          <img class="arrow" src="catalog/view/theme/fancy.shop/img/phone-icon__arrow.svg" alt="">
+          <img class="phone" src="catalog/view/theme/fancy.shop/img/phone-icon.svg" alt="">
+        </div>
+
+        <div class="header__phone__num" href="{{ contact }}">
+          <span>{{ telephone }}</span>
+          <span class="accent-text">заказать звонок</span>
+        </div>
+      </div>
+
+      <button class="btn-catalog">
+        <img src="catalog/view/theme/fancy.shop/img/catalog-btn__icon.svg" alt="">
+        <span style="font-weight: 600;">каталог</span>
+      </button>
+
+      <div class="header__search">
+        <input class="header__search__input" type="search" placeholder="Поиск товаров"></input>
+        <button class="btn-search" type="submit">
+          <img src="catalog/view/theme/fancy.shop/img/btn-search-icon.svg" alt="">
+        </button>
+      </div>
+
+      <div class="header__nav">
+        <a class="header__nav__item header__nav__auth">
+          <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19.8509 16.4974C19.8509 13.476 15.7686 11.0263 10.7325 11.0263C5.69633 11.0263 1.61398 13.476 1.61398 16.4974" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7325 11.0303C13.5022 11.0303 15.7477 8.7849 15.7477 6.01516C15.7477 3.24543 13.5022 1 10.7325 1C7.96277 1 5.71735 3.24543 5.71735 6.01516C5.71735 8.7849 7.96277 11.0303 10.7325 11.0303V11.0303Z" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+            <path d="M19.737 16.4974V19.4906C19.737 19.7577 19.6462 20.1448 19.3818 20.1448H2.08313C1.82416 20.1448 1.5 19.7546 1.5 19.4906V16.4974" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>войти</span>
+        </a>
+
+        <a class="header__nav__item header__nav__cart">
+          <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.27377 8.78939L10.733 18.8705C10.8789 19.0443 11.1173 19.042 11.2612 18.8705L19.7201 8.78939L19.3828 9.22045C19.8806 8.59944 20.2373 7.85101 20.4003 7.0282C20.4653 6.69899 20.5 6.35793 20.5 6.00882C20.5 3.24483 18.3535 1.00379 15.7053 1.00379C13.5208 1.00379 11.6778 2.52908 11.0997 4.61474L10.9003 4.61095C10.3217 2.52481 8.4787 1 6.29418 1C3.64653 1 1.5 3.24056 1.5 6.00503C1.5 6.35414 1.5342 6.69472 1.59928 7.02394C1.7622 7.84674 2.11892 8.59565 2.6172 9.21666" stroke="#424242" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>избранное</span>
+        </a>
+
+        <a class="header__nav__item header__nav__cart">
+          <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.772 22.4823C13.7609 22.4823 12.9415 21.6401 12.9415 20.6016C12.9415 19.5631 13.7609 18.7209 14.772 18.7209C15.7832 18.7209 16.6025 19.5631 16.6025 20.6016C16.6025 21.6401 15.7832 22.4823 14.772 22.4823V22.4823Z" stroke="#424242" stroke-width="2"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99199 22.4823C5.98083 22.4823 5.16147 21.6401 5.16147 20.6016C5.16147 19.5631 5.98083 18.7209 6.99199 18.7209C8.00315 18.7209 8.82251 19.5631 8.82251 20.6016C8.82251 21.6401 8.00315 22.4823 6.99199 22.4823V22.4823Z" stroke="#424242" stroke-width="2"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.454 3.98129L1.85244 3.98129C1.59455 3.98129 1.444 4.01607 1.51952 4.25706L4.20219 12.8984C4.27623 13.1349 4.47846 13.4221 4.65535 13.4221L16.6511 13.4221C16.8275 13.4221 17.0287 13.0628 17.1043 12.8218L19.7869 4.34253C19.8615 4.10601 19.7134 3.98129 19.454 3.98129V3.98129Z" stroke="#424242" stroke-width="2"/>
+            <path d="M19.8062 3.91059L20.7214 1.61301" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+            <path d="M16.6026 13.314C16.7716 13.314 16.9649 13.5048 17.0374 13.7492L18.4332 17.5454" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+            <path d="M23.4227 1L20.9383 1" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18.4537 17.894L4.04412 17.894" stroke="#424242" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span>корзина</span>
+        </a>
+      </div>
+    </div>
   </header>
