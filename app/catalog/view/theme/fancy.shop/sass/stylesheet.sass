@@ -1,7 +1,7 @@
 /* normalize.css */
 
 /**
- * 1. Correct the line height in all browsers.
+ * 1. Cor                rect the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
@@ -18,6 +18,8 @@ html
 
 body
   margin: 0
+  font-size: 15px
+  font-family: "CeraRoundPro-medium", "Arial", sans-serif
 
 /**
  * Render the `main` element consistently in IE.
@@ -310,8 +312,14 @@ template
 
 [hidden]
   display: none
-  
+
 /* end normalize.css */
 
-@import fonts
+@import variables
+
+/* import buttons*/
+@import common-blocks/btn-catalog/btn-catalog
+@import common-blocks/btn-search/btn-search
+
 @import header/header
+@import header-bottom/header-bottom.sass

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "CeraRoundPro-black";
+  src: url("../fonts/CeraRoundPro-black/CeraRoundPro-black.eot");
+  src: url("../fonts/CeraRoundPro-black/CeraRoundPro-black.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-black/CeraRoundPro-black.woff") format("woff"),
+       url("../fonts/CeraRoundPro-black/CeraRoundPro-black.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "CeraRoundPro-bold";
+  src: url("../fonts/CeraRoundPro-bold/CeraRoundPro-bold.eot");
+  src: url("../fonts/CeraRoundPro-bold/CeraRoundPro-bold.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-bold/CeraRoundPro-bold.woff") format("woff"),
+       url("../fonts/CeraRoundPro-bold/CeraRoundPro-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "CeraRoundPro-medium";
+  src: url("../fonts/CeraRoundPro-medium/CeraRoundPro-medium.eot");
+  src: url("../fonts/CeraRoundPro-medium/CeraRoundPro-medium.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-medium/CeraRoundPro-medium.woff") format("woff"),
+       url("../fonts/CeraRoundPro-medium/CeraRoundPro-medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "CeraRoundPro-regular";
+  src: url("../fonts/CeraRoundPro-regular/CeraRoundPro-regular.eot");
+  src: url("../fonts/CeraRoundPro-regular/CeraRoundPro-regular.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-regular/CeraRoundPro-regular.woff") format("woff"),
+       url("../fonts/CeraRoundPro-regular/CeraRoundPro-regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "CeraRoundPro-light";
+  src: url("../fonts/CeraRoundPro-light/CeraRoundPro-light.eot");
+  src: url("../fonts/CeraRoundPro-light/CeraRoundPro-light.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-light/CeraRoundPro-light.woff") format("woff"),
+       url("../fonts/CeraRoundPro-light/CeraRoundPro-light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "CeraRoundPro-thin";
+  src: url("../fonts/CeraRoundPro-thin/CeraRoundPro-thin.eot");
+  src: url("../fonts/CeraRoundPro-thin/CeraRoundPro-thin.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/CeraRoundPro-thin/CeraRoundPro-thin.woff") format("woff"),
+       url("../fonts/CeraRoundPro-thin/CeraRoundPro-thin.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
