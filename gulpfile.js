@@ -31,9 +31,12 @@ function reload() {
 }
 
 function style() {
+<<<<<<< HEAD
   /* Компиляция stylesheet.sass */
   console.log('* Компиляция stylesheet.sass *');
 
+=======
+>>>>>>> 570f69fbfd8fafea4e35d0d5d0fc6a731960ca5a
   return (
     gulp
       .src(paths.styles.src)
@@ -48,9 +51,12 @@ function style() {
 }
 
 function script() {
+<<<<<<< HEAD
   /* Объединение и сжатие скриптов */
   console.log('* Объединение и сжатие скриптов *');
 
+=======
+>>>>>>> 570f69fbfd8fafea4e35d0d5d0fc6a731960ca5a
   return (
     gulp
       .src(paths.scripts.src)
@@ -61,9 +67,12 @@ function script() {
 }
 
 function watch() {
+<<<<<<< HEAD
   /* Отслеживание php/wtig/sass */
   console.log('* Отслеживание php/wtig/sass *');
 
+=======
+>>>>>>> 570f69fbfd8fafea4e35d0d5d0fc6a731960ca5a
   browserSync.init({
     proxy:  'opencart-dev',
     notify: false

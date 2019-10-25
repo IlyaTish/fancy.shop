@@ -1,0 +1,25 @@
+.header
+  height: 60px
+  position: relative
+  &:before
+    width: 100%
+    height: 100%
+    content: ""
+    display: block
+    position: absolute
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08)
+    z-index: 99
+    pointer-events: none
+
+.header__cont
+  width: 1320px
+  height: 100%
+  margin: auto
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+@import __phone-icon/header__phone-icon
+@import __phone/header__phone
+@import __search/header__search
+@import __nav/header__nav
