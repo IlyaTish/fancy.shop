@@ -1,7 +1,7 @@
 /* normalize.css */
 
 /**
- * 1. Cor                rect the line height in all browsers.
+ * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
@@ -17,8 +17,9 @@ html
  */
 
 body
+  height: 4000px
   margin: 0
-  font-size: 15px
+  font-size: 14px
   font-family: "CeraRoundPro-medium", "Arial", sans-serif
 
 /**
@@ -315,10 +316,69 @@ template
 
 /* end normalize.css */
 
+.container
+  width: 1180px
+  margin: 0 auto
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  box-sizing: border-box
+  &--mt
+    margin: 28px auto 0 auto
+  &--flex-row
+    flex-direction: row
+  @media (max-width: 1239px)
+    width: 100%
+    padding: 0 20px
+  @media (max-width: 599px)
+    padding: 0 16px
+
+.swiper-button-prev, .swiper-button-next
+  color: #FFF
+  outline: none
+
+.swiper-button-prev
+  &:after
+    content: "\f104"
+    display: inline-block
+    font-family: "Font Awesome 5 Pro"
+    text-rendering: auto
+    -webkit-font-smoothing: antialiased
+    opacity: .7
+    transition: .1s
+  &:hover, &:focus
+    &:after
+      opacity: 1
+  &:active
+    &:after
+      opacity: .2
+      transition: none
+
+.swiper-button-next
+  &:after
+    content: "\f105"
+    display: inline-block
+    font-family: "Font Awesome 5 Pro"
+    text-rendering: auto
+    -webkit-font-smoothing: antialiased
+    opacity: .7
+    transition: .1s
+  &:hover, &:focus
+    &:after
+      opacity: 1
+  &:active
+    &:after
+      opacity: .2
+      transition: none
+
 @import variables
+@import title
 
 /* import buttons*/
+@import common/btn/btn
 @import common/btn-catalog/btn-catalog
 @import common/btn-search/btn-search
 
 @import common/header/header
+@import common/popular/popular
+@import home/home

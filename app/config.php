@@ -6,17 +6,10 @@ define('HTTP_SERVER', 'http://opencart-dev/');
 define('HTTPS_SERVER', 'http://opencart-dev/');
 
 // DIR
-<<<<<<< HEAD
 define('DIR_APPLICATION', 'C:/Projects/OSPanel/domains/opencart-dev/app/catalog/');
 define('DIR_SYSTEM', 'C:/Projects/OSPanel/domains/opencart-dev/app/system/');
 define('DIR_IMAGE', 'C:/Projects/OSPanel/domains/opencart-dev/app/image/');
 define('DIR_STORAGE', 'C:/Projects/OSPanel/domains/storage/');
-=======
-define('DIR_APPLICATION', 'C:/OSPanel/domains/opencart-dev/app/catalog/');
-define('DIR_SYSTEM', 'C:/OSPanel/domains/opencart-dev/app/system/');
-define('DIR_IMAGE', 'C:/OSPanel/domains/opencart-dev/app/image/');
-define('DIR_STORAGE', 'C:/OSPanel/domains/storage/');
->>>>>>> 570f69fbfd8fafea4e35d0d5d0fc6a731960ca5a
 define('DIR_LANGUAGE', DIR_APPLICATION . 'language/');
 define('DIR_TEMPLATE', DIR_APPLICATION . 'view/theme/');
 define('DIR_CONFIG', DIR_SYSTEM . 'config/');

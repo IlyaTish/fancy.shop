@@ -1,14 +1,239 @@
 {{ header }}
-<div id="common-home" class="container">
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">
+
+<main id="common-home" class="wrapper">
+  <div id="content" class="{{ class }} content">
+    <div class="container container--mt container--flex-row">
+      <div class="banner swiper-container s1">
+        <div class="swiper-wrapper">
+          <a class="swiper-slide">
+            <img class="banner__img" src="catalog/view/theme/fancy.shop/img/drone-akciya.jpg" alt="Баннерное фото">
+          </a>
+          <a class="swiper-slide">
+            <img class="banner__img" src="catalog/view/theme/fancy.shop/img/drone-akciya.jpg" alt="Баннерное фото">
+          </a>
+          <a class="swiper-slide">
+            <img class="banner__img" src="catalog/view/theme/fancy.shop/img/drone-akciya.jpg" alt="Баннерное фото">
+          </a>
+        </div>
+
+        <div class="swiper-button-prev far"></div>
+        <div class="swiper-button-next far"></div>
+      </div>
+
+      <div class="gift">
+        <h2 class="gift__title">Подберите подарок себе или своим близким <span class="gift__emoji">🎁</span></h2>
+
+        <form class="gift__form">
+          <div class="gift__row">
+            <div class="gift__col">
+              <span class="gift__form__title">Пол</span>
+              <div class="gift__row gift__row--flex-row">
+                <input class="gift__input gift__input--radio male far" type="radio" name="gender" checked>
+                <input class="gift__input gift__input--radio feemale far" type="radio" name="gender">
+              </div>
+            </div>
+            <div class="gift__col gift__col--100 gift__col--ml">
+              <span class="gift__form__title">Возраст</span>
+              <select class="gift__input gift__input--select" name="age">
+                <option disabled>Возраст</option>
+                <option value="1-7">1-7</option>
+                <option value="7-14" selected>7-14</option>
+                <option value="14-18">14-18</option>
+                <option value="18-21">18-21</option>
+              </select>
+            </div>
+          </div>
+          <div class="gift__row gift__row--mt">
+            <div class="gift__col gift__col--100">
+              <span class="gift__form__title">Категория</span>
+              <select class="gift__input gift__input--select" name="category">
+                <option disabled selected>Категория</option>
+                <option value="Электроника" selected>Электроника</option>
+                <option value="Товары для дома и интерьера">Товары для дома и интерьера</option>
+                <option value="Игрушки">Игрушки</option>
+                <option value="Одежда">Одежда</option>
+              </select></div>
+            </div>
+            <div class="gift__row gift__row--mt">
+              <div class="gift__col gift__col--100">
+                <span class="gift__form__title">Максимальная цена</span>
+                <div class="gift__row">
+                  <input class="gift__input" type="number" value="5000">
+                </div>
+              </div>
+              <div class="gift__col">
+                <button class="gift__btn btn">найти</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+
+    <div class="container">
+      <div class="advantages">
+        <div class="advantage">
+          <i class="icon payment-card-icon"></i>
+          <h2 class="advantage__title">безопасная<br>оплата</h2>
+          <p class="advantage__p">
+            Оплачивайте покупки любым
+            удобным способом! Мы гарантируем
+            сохранность ваших средств!
+          </p>
+        </div>
+        <div class="advantage advantage--guarantee">
+          <i class="icon guarantee-icon"></i>
+          <h2 class="advantage__title advantage__title--gradient">гарантия<br>возврата</h2>
+          <p class="advantage__p">
+            Не подошел размер? Нашли брак?
+            Вернем 100% суммы. Покупайте выгодно и безопасно
+          </p>
+        </div>
+        <div class="advantage">
+          <i class="icon sneakers-icon"></i>
+          <h2 class="advantage__title">широкий<br>ассортимент</h2>
+          <p class="advantage__p">
+            Большой выбор товаров и широкий ассортимент!
+            В нашем каталоге более 2000 товаров
+          </p>
+        </div>
+        <div class="advantage advantage--delivery">
+          <i class="icon delivery-icon"></i>
+          <h2 class="advantage__title advantage__title--gradient">доставка по<br>всей России</h2>
+          <p class="advantage__p">
+            Бесплатная доставка по всей России.
+            Вы можете выбрать любую удобную для Вас транспортную компанию
+          </p>
+        </div>
+      </div>
+
+      <div class="slider-catalog">
+        <nav class="swiper-container s2">
+          <ul class="swiper-wrapper">
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">детские коляски</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">кварокоптеры и радиоуправляемые игрушки</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">куклы</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">конструкторы</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">развивающие игрушки</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">велосипеды и гироскутеры</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">мягкие игрушки</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">мягкие игрушки</a>
+            </li>
+            <li class="slider-catalog__item swiper-slide">
+              <a class="slider-catalog__link">мягкие игрушки</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="catalog-nav">
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Детские коляски</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/baby-carriage-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Квадрокоптеры и радиоуправляемые игрушки</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/drone-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Электроника</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/smartphones-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Для дома и интерьера</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/interior-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Одежда, обувь и аксессуары</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/sneakers-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Товары для мам и малышей</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/baby-stuff-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Мягкие игрушки</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/soft-bear-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Велосипеды и гироскутеры</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/bicycle-photo.jpg">
+        </a>
+        <a class="catalog-nav__link" href="">
+          <h2 class="catalog-nav__title">Конструкторы</h2>
+          <div class="catalog-nav__button">смотреть</div>
+          <img class="catalog-nav__img" src="catalog/view/theme/fancy.shop/img/pages/home/catalog-nav/lego-photo.jpg">
+        </a>
+      </div>
+
+      <div class="popular swiper-container s3">
+        <div class="swiper-wrapper">
+          <div class="product-item swiper-slide">
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/baby-carriage.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Bartollino Adbor</h3>
+            <span class="product-item__price">16 500 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item swiper-slide">
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/soft-toy.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Игрушка "Как приручить дракона 3"</h3>
+            <span class="product-item__price">2 000 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item swiper-slide">
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/baby-seat.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Автокресло</h3>
+            <span class="product-item__price">2 000 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item swiper-slide">
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/baby-carriage.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Bartollino Adbor</h3>
+            <span class="product-item__price">2 000 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item swiper-slide">
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/xiaomi-mi-band-4.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Xiaomi Mi Band 4</h3>
+            <span class="product-item__price">4 000 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </main>
+
+  {{ footer }}

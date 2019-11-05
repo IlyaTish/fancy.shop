@@ -1,0 +1,189 @@
+.gift
+  width: 100%
+  height: 400px
+  max-width: 480px
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  position: relative
+  border-radius: 10px
+  background: url("../img/baby-gift-photo.jpg") no-repeat
+  background-size: contain
+  &:before
+    width: 100%
+    height: 100%
+    content: ""
+    display: block
+    position: absolute
+    border-radius: 10px
+    background: rgba(14, 14, 14, 0.35)
+    z-index: 9
+  @media (max-width: 1239px)
+    max-width: 100%
+    background-size: cover
+  @media (max-width: 599px)
+    height: auto
+    padding: 30px 0
+
+.gift__row
+  width: auto
+  display: flex
+  &--mt
+    margin: 20px 0 0 0
+  &--flex-row
+    @media (max-width: 479px)
+      flex-direction: row !important
+  @media (max-width: 479px)
+    flex-direction: column
+
+.gift__col
+  width: auto
+  display: flex
+  flex-direction: column
+  justify-content: flex-end
+  &--100
+    width: 100%
+  &--ml
+    margin: 0 0 0 20px
+    @media (max-width: 479px)
+      margin: 20px 0 0 0
+
+.gift__title
+  max-width: 380px
+  padding: 0 20px
+  margin: 0 0 30px 0
+  color: #FFF
+  font-size: 24px
+  font-family: "CeraRoundPro-black"
+  text-align: center
+  line-height: 30px
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5)
+  box-sizing: border-box
+  z-index: 9
+
+.gift__emoji
+  font-size: 20px
+  bottom: 2px
+  position: relative
+
+.gift__form
+  width: 100%
+  max-width: 800px
+  padding: 0 40px
+  box-sizing: border-box
+  z-index: 99
+  @media (max-width: 599px)
+    padding: 0 16px
+
+.gift__input
+  width: 100%
+  height: 36px
+  padding: 0 10px
+  color: $dark-gray
+  font-family: "CeraRoundPro-bold"
+  background: #FFF
+  border: none
+  border-radius: 5px
+  box-sizing: border-box
+  position: relative
+  &--radio
+    width: 36px
+    cursor: pointer
+    &:before
+      width: 100%
+      height: 100%
+      padding: 2px 1px 0 0
+      display: block
+      position: absolute
+      left: 0
+      top: 50%
+      color: $dark-gray
+      opacity: var(--fa-primary-opacity, 1.0)
+      font-size: 26px
+      font-family: "Font Awesome 5 Pro"
+      text-align: center
+      text-rendering: auto
+      line-height: 32px
+      -webkit-font-smoothing: antialiased
+      background: #FFF
+      border-radius: 6px
+      transform: translateY(-50%)
+      transition: .2s
+      opacity: 1
+    &:first-of-type
+      margin: 0 6px 0 0
+    &:checked
+      &:before
+        background: $main
+        color: #FFF
+      &:hover, &:active, &:focus
+        &:before
+          color: #FFF
+    &:hover, &:active, &:focus
+      &:before
+        color: #7d7d7d85
+  &--select
+    width: 100%
+    padding: 8px 10px
+    color: $dark-gray
+    box-sizing: border-box
+    option
+      padding: 0
+
+.male
+  &:before
+    content: "\f183"
+
+.feemale
+  &:before
+    content: "\f182"
+
+.gift__form__title
+  margin: 0 0 6px 0
+  color: #FFF
+  font-family: "CeraRoundPro-bold"
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5)
+
+.gift__btn
+  width: 140px
+  height: 36px
+  display: flex
+  justify-content: center
+  margin: 0 0 0 20px
+  line-height: 34px
+  position: relative
+  border: none
+  text-transform: none
+  box-shadow: 0px 4px 6px rgba(255, 60, 48, 0.75)
+  overflow: hidden
+  z-index: 9
+  &:before
+    width: 720%
+    height: 100%
+    display: block
+    content: ""
+    top: 0
+    left: 0
+    position: absolute
+    border-radius: 5px
+    background: linear-gradient(110deg,#fbff2a 0%,#ff2012 12%,#ff4d00 30%,#FF00B8 50%,#0d6eff 80%, #ae47ff 100%)
+    transition: ease .3s
+    z-index: 99
+  &:after
+    width: 100%
+    height: 100%
+    content: "найти"
+    display: block
+    top: 0
+    left: 0
+    position: absolute
+    border-radius: 5px
+    background: transparent
+    z-index: 999
+  &:hover, &:focus
+    box-shadow: none
+    &:before
+      left: calc(-720% + 140px)
+  @media (max-width: 479px)
+    margin: 20px auto 0 auto

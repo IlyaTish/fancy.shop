@@ -10,6 +10,8 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08)
     z-index: 99
     pointer-events: none
+  @media (max-width: 599px)
+    height: 48px
 
 
 .header__cont
@@ -36,7 +38,7 @@
   @media (max-width: 599px)
     margin: 0 auto 0 16px
     img
-      width: 78%
+      width: 80%
 
 
 .header__phone-icon
@@ -84,10 +86,10 @@
     background: $main
     border-radius: 100%
   @media (max-width: 1099px)
-    margin: 0 30px 0 0
+    margin: 0 24px 0 0
     order: 3
   @media (max-width: 599px)
-    margin: 0 16px 0 0
+    margin: 0
 
 
 .header__phone__num
@@ -118,6 +120,9 @@
       width: 100%
       height: 35px
       display: flex
+  @media (max-width: 599px)
+    &--mobile
+      height: 30px
 
 
 .header__search__input
@@ -149,12 +154,8 @@
   @media (max-width: 1099px)
     min-width: auto
     order: 4
-
-.header__nav__fav
-  @media (max-width: 1099px)
-    margin: 0 30px
   @media (max-width: 599px)
-    margin: 0 16px
+    display: none
 
 
 .header__nav__item
@@ -164,20 +165,27 @@
   flex-direction: column
   cursor: pointer
   transition: .3s
+  i
+    color: $black
+    font-size: 26px
+    transition: .2s
   &:hover
     color: $main
-    svg
-      path
-        stroke: $main
-        transition: .2s
+    i
+      color: $main
   span
     width: 100%
+    margin: 2px 0 0 0
     text-align: center
     font-size: 12px
-  svg
-    margin: 0 0 4px 0
   @media (max-width: 1099px)
     span
       display: none
+
+
+.header__nav__fav
+  @media (max-width: 1099px)
+    margin: 0 24px
+
 
 @import header-bottom.sass

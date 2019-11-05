@@ -9,7 +9,7 @@ define('HTTPS_CATALOG', 'http://opencart-dev/');
 
 // DIR
 define('DIR_APPLICATION', 'C:/Projects/OSPanel/domains/opencart-dev/app/admin/');
-define('DIR_SYSTEM', 'C:/Projects/OSPanel/domains/opencart-dev/app/system');
+define('DIR_SYSTEM', 'C:/Projects/OSPanel/domains/opencart-dev/app/system/');
 define('DIR_IMAGE', 'C:/Projects/OSPanel/domains/opencart-dev/app/image/');
 define('DIR_STORAGE', 'C:/Projects/OSPanel/domains/storage/');
 define('DIR_CATALOG', 'C:/Projects/OSPanel/domains/opencart-dev/app/catalog/');
