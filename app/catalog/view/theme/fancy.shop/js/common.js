@@ -46,10 +46,15 @@ $(document).ready(function() {
     freeModeMomentumRatio: 0.1,
     freeModeSticky: true,
     spaceBetween: 20,
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     navigation: {
       nextEl: '.popular__btn-next',
       prevEl: '.popular__btn-prev',
+    },
+    breakpoints: {
+      599: {
+        slidesPerView: 'auto',
+      }
     }
   });
 
@@ -66,10 +71,15 @@ $(document).ready(function() {
     freeModeMomentumRatio: 0.1,
     freeModeSticky: true,
     spaceBetween: 20,
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     navigation: {
       nextEl: '.new__btn-next',
       prevEl: '.new__btn-prev',
+    },
+    breakpoints: {
+      599: {
+        slidesPerView: 'auto',
+      }
     }
   });
 
@@ -86,10 +96,15 @@ $(document).ready(function() {
     freeModeMomentumRatio: 0.1,
     freeModeSticky: true,
     spaceBetween: 20,
-    slidesPerView: 'auto',
+    slidesPerView: 1,
     navigation: {
       nextEl: '.for-moms__btn-next',
       prevEl: '.for-moms__btn-prev',
+    },
+    breakpoints: {
+      599: {
+        slidesPerView: 'auto',
+      }
     }
   });
 
@@ -116,22 +131,20 @@ $(document).ready(function() {
 
   // ====== Change images in product-item ====== //
 
-  // var id = 0;
-
-  // $('.products .product-item__img-cont').hover(
-  //   /* Stuff to do when the mouse enters the element */
-  //   function(el) {
-  //   var el = $(this);
-  //   id = setInterval(function() {
-  //     el.find($('.swiper-button-next')).trigger('click');
-  //   }, 1000);
-  // }, function(el) {
-  //   /* Stuff to do when the mouse leaves the element */
-  //   clearInterval(id);
-  // });
-
   $('.swiper-pagination-bullet').on('mouseenter', function() {
     $(this).trigger('click');
-    console.log('Курсор прошел');
+  });
+
+
+  var content = $('.catalog-list--full');
+  var cat = $('.catalog-list .catalog-list__link');
+  var childCat = $('#ul');
+
+  cat.hover(function() {
+    /* Stuff to do when the mouse enters the element */
+    var thisLink = $(this).attr('href');
+    content.load(thisLink + ' #ul');
+  }, function() {
+    /* Stuff to do when the mouse leaves the element */
   });
 });

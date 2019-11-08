@@ -29,7 +29,7 @@
       {% if categories|length <= 5 %}
       <div class="row">
         <div class="col-sm-3">
-          <ul id="ul" class="">
+          <ul id="ul">
             {% for category in categories %}
             <li><a href="{{ category.href }}">{{ category.name }}</a></li>
             {% endfor %}

@@ -10,6 +10,8 @@
       &:after
         content: "\f137"
         font-size: 34px
+      @media (max-width: 1239px)
+        left: 0
     &-next
       right: -30px
       color: $black
@@ -18,6 +20,8 @@
       &:after
         content: "\f138"
         font-size: 34px
+      @media (max-width: 1239px)
+        right: 0
 
   &__title
     width: 100%
@@ -27,7 +31,7 @@
     font-family: "CeraRoundPro-black"
 
 .product-item
-  width: 222px
+  width: 224px
   min-height: 376px
   padding: 40px 0 0 0
   display: flex
@@ -102,6 +106,8 @@
           margin: 0 !important
         &-active
           --swiper-theme-color: #FF2012
+      @media (max-width: 599px)
+        display: none
 
   &__img
     width: auto
@@ -113,7 +119,7 @@
 
   &__title
     margin: 20px 0 0 0
-    color: $dark-gray
+    color: $black
     font-size: 16px
 
   &__rate
@@ -124,7 +130,7 @@
 
   &__price
     margin: auto 0 0 0
-    color: $black
+    color: #000
     font-size: 22px
     font-family: "CeraRoundPro-bold"
     white-space: nowrap

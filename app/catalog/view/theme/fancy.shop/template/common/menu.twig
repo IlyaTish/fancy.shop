@@ -1,0 +1,16 @@
+{% if categories %}
+<div class="catalog">
+  <nav class="catalog__cont">
+    <ul class="catalog-list">
+      {% for category in categories %}
+      <li class="catalog-list__item">
+        <a class="catalog-list__link" href="{{ category.href }}">{{ category.name }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="catalog-list--full">
+    </div>
+  </nav>
+</div>
+{% endif %}
