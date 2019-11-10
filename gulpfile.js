@@ -32,7 +32,7 @@ function reload() {
 
 function style() {
   /* Компиляция stylesheet.sass */
-  console.log('* Компиляция stylesheet.sass *');
+  console.log('\n' + '* Компиляция stylesheet.sass *' + '\n');
   return (
     gulp
       .src(paths.styles.src)
@@ -48,7 +48,7 @@ function style() {
 
 function script() {
   /* Объединение и сжатие скриптов */
-  console.log('* Объединение и сжатие скриптов *');
+  console.log('\n' + '* Объединение и сжатие скриптов *' + ' \n');
   return (
     gulp
       .src(paths.scripts.src)
@@ -60,7 +60,7 @@ function script() {
 
 function watch() {
   /* Отслеживание php/wtig/sass */
-  console.log('* Отслеживание php/wtig/sass *');
+  console.log('\n' + '* Отслеживание php/wtig/sass *' + '\n');
   browserSync.init({
     proxy:  'opencart-dev',
     notify: false

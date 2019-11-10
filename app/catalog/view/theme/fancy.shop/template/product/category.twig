@@ -19,11 +19,6 @@
     <div id="content" class="{{ class }}">{{ content_top }}
       <h1>{{ heading_title }}</h1>
       <div id="child-cat" class="cat">
-        <div>
-          {% if thumb %}
-          <img src="{{ thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}">
-          {% endif %}
-        </div>
         {% if categories %}
         {% if categories|length <= 5 %}
         <ul class="cat-list">
@@ -38,7 +33,10 @@
         <ul class="cat-list">
           {% for child in category %}
           <li class="cat-list__item">
-            <a class="cat-list__link" href="{{ child.href }}">{{ child.name }}</a>
+            <a class="cat-list__link" href="{{ child.href }}">
+              <img class="cat-list__img" src="{{ child.thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}">
+              <span>{{ child.name }}</span>
+            </a>
           </li>
           {% endfor %}
         </ul>
