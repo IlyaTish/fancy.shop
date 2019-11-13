@@ -110,21 +110,21 @@ $(document).ready(function() {
 
 
   /*
-    Product images fade effect ('.product-item__img-cont')
+    Product images fade effect ('.product-item__img-catCont')
   */
-  var productImages = new Swiper('.product-item__img-cont.swiper-container', {
+  var productImages = new Swiper('.product-item__img-catCont.swiper-catContainer', {
     loop: true,
     autoplay: false,
     direction: 'horizontal',
     effect: 'fade',
     spaceBetween: 0,
     pagination: {
-      el: '.product-item__img-cont .swiper-pagination',
+      el: '.product-item__img-catCont .swiper-pagination',
       clickable: true,
     },
     navigation: {
-      nextEl: '.product-item__img-cont .swiper-button-next',
-      prevEl: '.product-item__img-cont .swiper-button-prev',
+      nextEl: '.product-item__img-catCont .swiper-button-next',
+      prevEl: '.product-item__img-catCont .swiper-button-prev',
     }
   });
 
@@ -135,16 +135,36 @@ $(document).ready(function() {
     $(this).trigger('click');
   });
 
+  var catLink = $('.catalog-list__link');
+  var catCont = $('.catalog-list-full');
+  var timeoutId;
 
-  var content = $('.catalog-list--full');
-  var cat = $('.catalog-list .catalog-list__link');
-  var childCat = $('#ul');
+  catLink.hover(function() {
+    var thisCatLink = $(this);
 
-  cat.hover(function() {
-    /* Stuff to do when the mouse enters the element */
-    var thisLink = $(this).attr('href');
-    content.load(thisLink + ' #child-cat');
-  }, function() {
-    /* Stuff to do when the mouse leaves the element */
+    if (!timeoutId) {
+      timeoutId = window.setTimeout(function() {
+        timeoutId = null;
+
+        catCont.load(thisCatLink.attr('href') + ' #child-cat', function() {
+            catLink.removeClass('active');
+            thisCatLink.addClass('active');
+            catLink.mouseover(function() {
+              /* Act on the event */
+              catLink.removeClass('active');
+              thisCatLink.addClass('active');
+            });
+        });
+      }, 100);
+    }
+  },
+
+  function(e) {
+    var e = $(this);
+
+    if (timeoutId) {
+      window.clearTimeout(timeoutId);
+      timeoutId = null;
+    }
   });
 });
