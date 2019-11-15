@@ -4,7 +4,7 @@
     <ul class="catalog-list">
       {% for category in categories %}
       <li class="catalog-list__item">
-        <a class="catalog-list__link" href="{{ category.href }}">{{ category.name }}</a>
+        <a class="catalog-list__link" href="{{ category.href }}" onmouseenter="loadContent(this)">{{ category.name }}</a>
       </li>
       {% endfor %}
     </ul>

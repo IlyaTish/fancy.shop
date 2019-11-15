@@ -3,6 +3,7 @@ const gulp         = require('gulp'),
       cleanCSS     = require('gulp-clean-css'),
       browserSync  = require('browser-sync').create();
       concat       = require('gulp-concat'),
+      babel        = require('gulp-babel'),
       uglify       = require('gulp-uglify'),
       cssnano      = require('gulp-cssnano'),
       rename       = require('gulp-rename'),
@@ -32,12 +33,15 @@ function reload() {
 
 function style() {
   /* Компиляция stylesheet.sass */
-  console.log('\n' + '* Компиляция stylesheet.sass *' + '\n');
+  console.log('\n' + '* Компиляция stylesheet.sass *');
   return (
     gulp
       .src(paths.styles.src)
       .pipe(sass())
       .on('error', sass.logError)
+      .pipe(autoprefixer({
+        cascade: false
+      }))
       .pipe(concat('stylesheet.min.css'))
       .pipe(cssnano())
       .pipe(cleanCSS())
@@ -48,10 +52,13 @@ function style() {
 
 function script() {
   /* Объединение и сжатие скриптов */
-  console.log('\n' + '* Объединение и сжатие скриптов *' + ' \n');
+  console.log('\n' + '* Объединение и сжатие скриптов, применение Babel *');
   return (
     gulp
       .src(paths.scripts.src)
+      .pipe(babel({
+        presets: ['@babel/env']
+      }))
       .pipe(concat('scripts.min.js'))
       .pipe(uglify())
       .pipe(gulp.dest(paths.scripts.dest))
@@ -60,7 +67,7 @@ function script() {
 
 function watch() {
   /* Отслеживание php/wtig/sass */
-  console.log('\n' + '* Отслеживание php/wtig/sass *' + '\n');
+  console.log('\n' + '* Отслеживание php/wtig/sass *');
   browserSync.init({
     proxy:  'opencart-dev',
     notify: false
