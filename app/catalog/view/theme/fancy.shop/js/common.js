@@ -135,9 +135,28 @@ $(document).ready(function() {
     $(this).trigger('click');
   });
 
-  var catLink = $('.catalog-list__link');
-  var catCont = $('.catalog-list-full');
+  var catLink    = $('.catalog-list__link');
+  var catCont    = $('.catalog-list-full');
   var timeoutId;
+
+  // catalogBtn.click(function(el) {
+  //   $target = $(el.target);
+
+  //   if ($target.hasClass('active')) {
+  //     setTimeout(function() {
+  //       $target.removeClass('active');
+
+  //       catalog.removeClass('catalog--active');
+  //     });
+  //     return;
+  //   }
+
+  //   setTimeout(function() {
+  //     $target.addClass('active');
+
+  //     catalog.addClass('catalog--active');
+  //   })
+  // });
 
   catLink.hover(function() {
     var thisCatLink = $(this);
@@ -166,5 +185,26 @@ $(document).ready(function() {
       window.clearTimeout(timeoutId);
       timeoutId = null;
     }
+  });
+
+
+  var box = $('.catalog'),
+  button = $('.btn-catalog');
+
+  button.on('click', function(e) {
+    if (box.hasClass('hidden')) {
+      // show
+      box.addClass('transition');
+      box.innerWidth(); // force layout to ensure the now display: block and opacity: 0 values are taken into account when the CSS transition starts.
+      box.removeClass('hidden');
+    } else {
+      // hide
+      box.addClass('transition');
+      box.addClass('hidden');
+    }
+  });
+
+  box.on('transitionend', function() {
+    box.removeClass('transition');
   });
 });
