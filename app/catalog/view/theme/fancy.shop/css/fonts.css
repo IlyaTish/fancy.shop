@@ -60,11 +60,11 @@
 
 @font-face {
   font-family: 'Fancyshop-icons';
-  src:  url('../fonts/Fancyshop-icons/fancyshop-icons.eot?p4xxcz');
-  src:  url('../fonts/Fancyshop-icons/fancyshop-icons.eot?p4xxcz#iefix') format('embedded-opentype'),
-    url('../fonts/Fancyshop-icons/fancyshop-icons.ttf?p4xxcz') format('truetype'),
-    url('../fonts/Fancyshop-icons/fancyshop-icons.woff?p4xxcz') format('woff'),
-    url('../fonts/Fancyshop-icons/fancyshop-icons.svg?p4xxcz#fancyshop-icons') format('svg');
+  src:  url('../fonts/Fancyshop-icons/fancyshop-icons.eot?qi0w52');
+  src:  url('../fonts/Fancyshop-icons/fancyshop-icons.eot?qi0w52#iefix') format('embedded-opentype'),
+    url('../fonts/Fancyshop-icons/fancyshop-icons.ttf?qi0w52') format('truetype'),
+    url('../fonts/Fancyshop-icons/fancyshop-icons.woff?qi0w52') format('woff'),
+    url('../fonts/Fancyshop-icons/fancyshop-icons.svg?qi0w52#fancyshop-icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -82,30 +82,33 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.close-icon:before {
+  content: "\274c";
+}
 .delivery-icon:before {
-  content: "\61";
+  content: "\1f69a";
 }
 .payment-card-icon:before {
-  content: "\62";
+  content: "\1f4b3";
 }
 .sneakers-icon:before {
-  content: "\63";
+  content: "\1f45f";
 }
 .guarantee-icon:before {
-  content: "\64";
+  content: "\270d";
 }
 .cart-icon:before {
-  content: "\65";
+  content: "\1f45c";
 }
 .auth-icon:before {
-  content: "\66";
+  content: "\1f513";
 }
 .fav-icon:before {
-  content: "\67";
+  content: "\1f496";
 }
 .list-icon:before {
-  content: "\68";
+  content: "\1f4cb";
 }
 .search-icon:before {
-  content: "\69";
+  content: "\1f50d";
 }

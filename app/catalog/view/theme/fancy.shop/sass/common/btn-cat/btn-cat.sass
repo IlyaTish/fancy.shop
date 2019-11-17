@@ -1,0 +1,77 @@
+.btn-cat
+  width: 120px
+  height: 34px
+  padding: 0 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  position: relative
+  background: $main
+  border: none
+  border-radius: 5px
+  box-sizing: border-box
+  color: #FFF
+  text-shadow: 0px 1px 2px #00000078
+  cursor: pointer
+  outline: none
+  overflow: hidden
+  transition: .2s
+  &__icon
+    width: 24px
+    height: 34px
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    overflow: hidden
+    &:before
+      width: auto
+      height: 100%
+      content: "\274c"
+      display: block
+      top: -100%
+      left: 0
+      font-size: 20px
+      font-family: "Fancyshop-icons"
+      line-height: 34px
+      position: absolute
+      transition: .1s
+    i
+      width: 24px
+      height: 100%
+      font-size: 24px
+      line-height: 34px
+      pointer-events: none
+      top: 0
+      left: 0
+      position: absolute
+      transition: .1s
+  &:hover
+    background: darken($main, 8%)
+    box-shadow: inset -3px 8px 12px 0px #0000001f
+  span
+    bottom: 1px
+    position: relative
+    font-weight: 600
+    letter-spacing: 0.4px
+    pointer-events: none
+  @media (max-width: 1099px)
+    order: 1
+  @media (max-width: 599px)
+    width: 35px
+    height: 28px
+    padding: 0
+    justify-content: center
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25)
+    i
+      font-size: 20px
+    span
+      display: none
+  &--active
+    background: darken($main, 8%)
+    box-shadow: inset -3px 8px 12px 0px #0000001f
+    .btn-cat__icon
+      &:before
+        top: 0
+      i
+        top: 100%
