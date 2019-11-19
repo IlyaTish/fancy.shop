@@ -1,13 +1,7 @@
 {% if categories %}
-<<<<<<< HEAD
 <div class="header__cat hidden">
   <div class="header__cat__cont">
     <ul class="header__cat-list">
-=======
-<div class="catalog hidden">
-  <nav class="catalog__cont">
-    <ul class="catalog-list">
->>>>>>> e476eafd817b62da70d03854f780caad66154605
       {% for category in categories %}
       <li class="header__cat-list__item">
         <a class="header__cat-list__link" href="{{ category.href }}">{{ category.name }}</a>

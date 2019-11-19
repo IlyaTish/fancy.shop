@@ -55,6 +55,25 @@
                     <textarea name="module_description[{{ language.language_id }}][description]" placeholder="{{ entry_description }}" id="input-description{{ language.language_id }}" data-toggle="summernote" class="form-control">{{ module_description[language.language_id] ? module_description[language.language_id].description }}</textarea>
                   </div>
                 </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-category">
+                    <span data-toggle="tooltip" title="">Категории</span>
+                  </label>
+
+                  <div class="col-sm-10">
+                    <input type="text" name="category" value="" placeholder="Укажите категорию" id="input-category" class="form-control" />
+                    <div id="category" class="well well-sm" style="height: 150px; overflow: auto;">
+                      {% for category in categories %}
+                      {% if category['category_id'] in module_html_categories %}
+                      <div id="category{{ category['category_id'] }}">
+                        <i class="fa fa-minus-circle"></i> {{ category['name'] }}
+                        <input type="hidden" name="module_html_categories[]" value="{{ category['category_id'] }}" />
+                      </div>
+                      {% endif %}
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
               </div>
               {% endfor %}
             </div>
@@ -77,17 +96,52 @@
       </div>
     </div>
   </div>
+
   <link href="view/javascript/codemirror/lib/codemirror.css" rel="stylesheet" />
   <link href="view/javascript/codemirror/theme/monokai.css" rel="stylesheet" />
-  <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script> 
-  <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script> 
-  <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script> 
-    
+
+  <script type="text/javascript" src="view/javascript/codemirror/lib/codemirror.js"></script>
+  <script type="text/javascript" src="view/javascript/codemirror/lib/xml.js"></script>
+  <script type="text/javascript" src="view/javascript/codemirror/lib/formatting.js"></script>
+
   <script type="text/javascript" src="view/javascript/summernote/summernote.js"></script>
   <link href="view/javascript/summernote/summernote.css" rel="stylesheet" />
   <script type="text/javascript" src="view/javascript/summernote/summernote-image-attributes.js"></script>
   <script type="text/javascript" src="view/javascript/summernote/opencart.js"></script>
-  <script type="text/javascript"><!--
-$('#language a:first').tab('show');
-//--></script></div>
+
+  <script type="text/javascript">
+    $('#language a:first').tab('show');
+  </script>
+
+  <script type="text/javascript">
+    // Category
+    $('input[name=\'category\']').autocomplete({
+      'source': function(request, response) {
+        $.ajax({
+          url: 'index.php?route=extension/module/html/category_autocomplete&user_token={{ token }}&filter_name=' +  encodeURIComponent(request) + '&limit=5',
+          dataType: 'json',
+          success: function(json) {
+            response($.map(json, function(item) {
+              return {
+                label: item['name'],
+                value: item['category_id']
+              }
+            }));
+          }
+        });
+      },
+      'select': function(item) {
+        $('input[name=\'category\']').val('');
+
+        $('#category' + item['value']).remove();
+
+        $('#category').append('<div id="category' + item['value'] + '"><i class="fa fa-minus-circle"></i> ' + item['label'] + '<input type="hidden" name="module_html_categories[]" value="' + item['value'] + '" /></div>');
+      }
+    });
+
+    $('#category').delegate('.fa-minus-circle', 'click', function() {
+      $(this).parent().remove();
+    });
+  </script>
+</div>
 {{ footer }}
