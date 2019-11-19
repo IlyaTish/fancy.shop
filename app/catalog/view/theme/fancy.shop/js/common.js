@@ -4,13 +4,15 @@ $(document).ready(function() {
     Banner slider on home page ('.banner')
   */
   const s1 = new Swiper ('.s1', {
-    loop: false,
+    loop: true,
     autoplay: {
-      delay: 10000,
+      delay: 12000,
     },
-    freeMode: true,
     spaceBetween: 20,
-    slidesPerView: 'auto'
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
   });
 
 
@@ -184,49 +186,92 @@ $(document).ready(function() {
   const catLink  = $('.header__cat-list__link'),
         catCont  = $('.header__cat-list-full'),
         cat      = $('.header__cat'),
-        btnCat   = $('.btn-cat');
+        btnCat   = $('.btn-cat'),
+        $window  = $(window);
 
-    let request;
+  let request;
 
-    catLink.bind('loadChildCat', function(event) {
-      const thisCatLink = $(this);
-      let target = event.target;
+  var mediaQuery = window.matchMedia('(min-width: 599px)');
 
-      request = $.ajax({
-        url: target.attributes.href.value,
-        dataType: 'html',
-        success: function(data) {
-          catCont.html($(data).find('#content'));
+  loadCatLink();
+  $window.on('resize', loadCatLink);
 
-          catLink.removeClass('active');
-          thisCatLink.addClass('active');
+  function loadCatLink() {
+    if (mediaQuery.matches) {
+      window.onload = function() {
+        catLink.bind('loadChildCat', function(event) {
+          const thisCatLink = $(this);
+          let   target = event.target;
 
-          if (catCont.has('.cat .cat-list').length) {
-            catCont.addClass('header__cat-list-full--active');
-          } else {
-            catCont.removeClass('header__cat-list-full--active');
+          request = $.ajax({
+            url: target.attributes.href.value,
+            dataType: 'html',
+            success: function(data) {
+              catCont.html($(data).find('#content'));
+
+              catLink.removeClass('active');
+              thisCatLink.addClass('active');
+
+              if (catCont.has('.cat .cat-list').length) {
+                catCont.addClass('header__cat-list-full--active');
+              } else {
+                catCont.removeClass('header__cat-list-full--active');
+              }
+            }
+          });
+        });
+
+        let timeout;
+
+        catLink.mouseenter(function(e) {
+          const self = this;
+
+          clearTimeout(timeout);
+          timeout = setTimeout(function() {
+            $(self).trigger('loadChildCat')
+          });
+        });
+
+        catLink.mouseleave(function() {
+          if (request) {
+            request.abort();
+            request = null;
           }
-        }
-      });
-    });
+        });
 
-    let timeout;
-
-    catLink.mouseenter(function(e) {
-      const self = this;
-
-      clearTimeout(timeout);
-      timeout = setTimeout(function() {
-        $(self).trigger('loadChildCat')
-      });
-    });
-
-    catLink.mouseleave(function() {
-      if (request) {
-        request.abort();
-        request = null;
+        loadFirstCatLink('mouseenter');
       }
-    });
+    }
+
+    else {
+      catLink.click(function(event) {
+        /* Act on the event */
+        event.preventDefault();
+
+        const thisCatLink = $(this);
+        let   target = event.target;
+
+        request = $.ajax({
+          url: target.attributes.href.value,
+          dataType: 'html',
+          success: function(data) {
+            catCont.html($(data).find('#content'));
+
+            catLink.removeClass('active');
+            thisCatLink.addClass('active');
+
+            if (catCont.has('.cat .cat-list').length) {
+              catCont.addClass('header__cat-list-full--active');
+            } else {
+              catCont.removeClass('header__cat-list-full--active');
+            }
+          }
+        });
+      });
+
+      loadFirstCatLink('click');
+    }
+  }
 
 
 
@@ -252,7 +297,7 @@ $(document).ready(function() {
   });
 });
 
-$(document).ready(function() {
+function loadFirstCatLink(event) {
   const firstCat = $('.header__cat-list__item:first-child .header__cat-list__link');
-  firstCat.mouseover();
-});
+  firstCat.trigger(event);
+}
