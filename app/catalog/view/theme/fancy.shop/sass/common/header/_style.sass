@@ -1,0 +1,636 @@
+// Header styles
+.header
+  height: 60px
+  position: relative
+  &:after
+    width: 100%
+    height: 100%
+    content: ''
+    display: block
+    top: 0
+    left: 0
+    position: absolute
+    z-index: 9999
+    background: #FFF
+  &:before
+    width: 100%
+    height: 100%
+    content: ''
+    display: block
+    top: 0
+    left: 0
+    position: absolute
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25)
+    z-index: 99
+    pointer-events: none
+  @media (max-width: 599px)
+    height: 48px
+
+  &__cont
+    width: 1320px
+    height: 100%
+    margin: auto
+    display: flex
+    justify-content: space-between
+    align-items: center
+    box-sizing: border-box
+    @media (max-width: 1399px)
+      width: 100%
+      padding: 0 20px
+    @media (max-width: 599px)
+      padding: 0 16px
+
+  &__logo
+    display: flex
+    align-items: center
+    z-index: 99999
+    @media (max-width: 1099px)
+      margin: 0 auto 0 20px
+      order: 2
+    @media (max-width: 599px)
+      margin: 0 auto 0 16px
+      img
+        width: 80%
+
+  &__phone-icon
+    position: relative
+    transition: .3s
+    .arrow
+      right: 3px
+      top: 3px
+      position: absolute
+    @media (max-width: 1269px)
+      transform: scale(.8)
+      .arrow, .phone
+        path
+          fill: #FFF
+          stroke: #FFF
+
+  &__phone
+    display: flex
+    align-items: center
+    cursor: pointer
+    z-index: 99999
+    &:hover
+      .arrow
+        animation: phone-anim ease-in-out .3s
+      .accent-text
+        color: darken($main, 10%)
+        border-bottom: 2px dotted darken($main, 10%)
+    @media (max-width: 1269px)
+      width: 34px
+      height: 34px
+      display: flex
+      align-items: center
+      justify-content: center
+      background: $main
+      border-radius: 100%
+    @media (max-width: 1099px)
+      margin: 0 24px 0 0
+      order: 3
+    @media (max-width: 599px)
+      margin: 0
+    &__num
+      margin: 0 0 0 5px
+      span
+        width: 100%
+        display: block
+        font-weight: 600
+        font-size: 0.938rem
+        color: #000
+      .accent-text
+        width: auto
+        display: inline-block
+        border-bottom: 2px dotted $main
+        color: #FF2012
+      @media (max-width: 1269px)
+        display: none
+
+  &__search
+    width: 40%
+    display: flex
+    z-index: 99999
+    &--mobile
+      display: none
+      z-index: 99
+    @media (max-width: 1099px)
+      display: none
+      &--mobile
+        width: 100%
+        height: 35px
+        display: flex
+    @media (max-width: 599px)
+      &--mobile
+        height: 30px
+    &__input
+      width: 100%
+      height: 32px
+      padding: 0 15px
+      font-size: 0.938rem
+      border-radius: 20px
+      border: 1px solid #E2E2E2
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      background: #FDFDFD
+      box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.1)
+      box-sizing: border-box
+      outline: none
+      transition: .3s
+      &:hover
+        border: 2px solid #E2E2E2
+      &:focus
+        border: 2px solid $main
+      @media (max-width: 1099px)
+        height: 100%
+
+  &__nav
+    min-width: 200px
+    display: flex
+    justify-content: space-between
+    z-index: 99999
+    @media (max-width: 1099px)
+      min-width: auto
+      order: 4
+    @media (max-width: 599px)
+      display: none
+    &__item
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      flex-direction: column
+      cursor: pointer
+      transition: .3s
+      i
+        color: #000
+        font-size: 26px
+        transition: .2s
+      &:hover
+        color: $main
+        i
+          color: $main
+      span
+        width: 100%
+        margin: 2px 0 0 0
+        text-align: center
+        font-size: 12px
+      @media (max-width: 1099px)
+        span
+          display: none
+    &__fav
+      @media (max-width: 1099px)
+        margin: 0 24px
+
+@keyframes phone-anim
+  0%
+    right: -16px
+    top: -16px
+    opacity: 0
+  100%
+    right: 3px
+    top: 3px
+    opacity: 1
+
+
+// Header catalog menu styles
+.header__cat
+  width: 100%
+  display: block
+  top: 60px
+  left: 0
+  position: absolute
+  background: #FFF
+  box-shadow: 0px 6px 60px rgba(0, 0, 0, 0.12)
+  border-top: 1px solid #f1f1f1
+  opacity: 1
+  z-index: 999
+  @media (max-width: 899px)
+    box-shadow: 0 6px 60px rgba(0, 0, 0, 0.4)
+  @media (max-width: 599px)
+    top: 48px
+
+  &-slider
+    overflow: unset !important
+    .swiper-slide
+      width: auto !important
+      height: auto !important
+      @media (max-width: 599px)
+        width: 30% !important
+
+    &:before
+      width: calc(100% + 1000px)
+      height: 100%
+      content: ""
+      display: block
+      right: 0
+      top: 0
+      background: #F7F7F7
+      position: absolute
+      pointer-events: none
+  @media (max-width: 599px)
+    overflow: hidden !important
+
+  &__cont
+    width: 1180px
+    margin: auto
+    position: relative
+    display: flex
+    box-sizing: border-box
+    z-index: 9999
+    @media (max-width: 1399px)
+      width: 100%
+      padding: 0 20px
+    @media (max-width: 599px)
+      padding: 0
+      flex-direction: column
+
+  &-list
+    width: 290px
+    margin: 0
+    display: flex
+    flex-direction: column
+    padding: 10px 0 40px 0
+    position: relative
+    list-style: none
+    box-sizing: border-box
+    &:before
+      width: 1000px
+      height: 100%
+      content: ""
+      display: block
+      right: 0
+      top: 0
+      background: #F7F7F7
+      position: absolute
+      z-index: 99
+      pointer-events: none
+    @media (max-width: 899px)
+      width: 142px
+    @media (max-width: 599px)
+      width: 100%
+      padding: 10px 16px
+      flex-direction: row
+      background: #F7F7F7
+      overflow-y: hidden
+      overflow-x: scroll
+
+    &__item
+      position: relative
+      list-style: none
+      z-index: 999
+
+    &__link
+      width: 100%
+      min-width: 240px
+      display: inline-block
+      padding: 12px 16px
+      color: #000
+      font-size: 14px
+      text-decoration: none
+      border-top-left-radius: 40px
+      border-bottom-left-radius: 40px
+      box-sizing: border-box
+      transition: 0.1s
+      &:hover, &:focus, &:active
+        color: lighten(#000, 40%)
+      @media (max-width: 899px)
+        min-width: auto
+        padding: 10px 12px
+        font-size: 14px
+        text-align: center
+      @media (max-width: 599px)
+        height: 100%
+        min-width: 150px
+        padding: 6px 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        font-family: "CeraRoundPro-bold"
+        border-radius: 40px
+
+    .active
+      color: $main
+      background: #FFF
+      @media (max-width: 599px)
+        box-shadow: 2px 5px 6px #00000003
+    &-full
+      width: 100%
+      height: 100%
+      min-height: 400px
+      position: relative
+      &:before
+        width: 80px
+        height: 80px
+        content: ""
+        display: block
+        top: 50%
+        left: 50%
+        margin-top: -60px
+        margin-left: -40px
+        position: absolute
+        background: url("../img/common/preloader.gif") no-repeat
+        background-size: cover
+        background-position: center
+        opacity: 1
+        z-index: 9
+        transition: .2s
+      &--active
+        &:before
+          opacity: 0
+      @media (max-width: 599px)
+        padding: 0 16px 20px 16px
+        box-sizing: border-box
+
+      h1
+        display: none
+
+      #menu
+        display: flex
+        justify-content: space-between
+        @media (max-width: 1099px)
+          padding: 20px 30px
+          flex-direction: column
+        @media (max-width: 899px)
+          padding: 30px 20px 0
+        @media (max-width: 599px)
+          padding: 0
+
+      .cat
+        &-list
+          width: 680px
+          max-height: none
+          margin: 0
+          padding: 30px 40px 0
+          border: none
+          box-sizing: border-box
+          column-count: 4
+          &:hover
+            overflow: unset !important
+          @media (max-width: 1099px)
+            width: 100%
+            padding: 0
+          @media (max-width: 899px)
+            column-count: 3
+          @media (max-width: 599px)
+            margin: 20px 0 0 0
+            display: grid
+            grid-gap: 20px
+            grid-template-columns: 1fr 1fr
+            column-count: 1
+          &__title
+            display: none
+          &__item
+            margin: 0 0 40px 0
+            list-style: none
+            page-break-inside: avoid
+            break-inside: avoid
+            @media (max-width: 599px)
+              margin: 0 0 20px 0
+              &:last-of-type
+                margin: 0
+          &__img
+            width: 60px
+            height: 60px
+            display: block !important
+            transition: .2s
+            @media (max-width: 899px)
+              width: 100%
+              height: 100%
+              max-width: 100px
+              max-height: 100px
+              display: block
+              margin: auto
+
+          &__link
+            display: flex
+            flex-direction: column
+            padding: 4px 0
+            text-decoration: none
+            @media (max-width: 599px)
+              padding: 20px 0
+              border-radius: 10px
+              box-shadow: 0 0 16px #0000000f
+            span
+              margin: 10px 0 0 0
+              color: #000
+              font-size: 14px
+              font-family: "CeraRoundPro-bold"
+              transition: .2s
+              @media (max-width: 899px)
+                text-align: center
+
+            &:hover, &:focus
+              img
+                transform: scale(1.05)
+              span
+                color: $main
+
+        &-brands
+          padding: 30px 0
+          order: 2
+          @media (max-width: 1099px)
+            margin: 20px 0 0 0
+            padding: 0
+          @media (max-width: 899px)
+            display: none
+
+          &-list
+            max-width: 156px
+            margin: 0
+            padding: 0
+            @media (max-width: 1099px)
+              max-width: 100%
+
+            &__item
+              margin: 0 0 30px 0
+              list-style: none
+              @media (max-width: 1099px)
+                display: inline-block
+                margin: 0 40px 0 0
+                &:last-of-type
+                  margin: 0
+            a
+              width: auto
+              height: 40px
+              display: flex
+              align-items: center
+              justify-content: center
+              text-decoration: none
+              &:hover, &:focus, &:active
+                img
+                  opacity: 0.6
+              img
+                height: 100%
+                opacity: 1
+                transition: .2s
+
+.hidden
+  display: none
+  top: 80px
+.transition.hidden
+  display: block
+  opacity: 0
+.transition
+  transition: .1s ease
+
+
+// Header bottom block styles
+.header-bottom
+  height: 32px
+  position: relative
+  background: #a7a7a7
+  nav
+    height: 100%
+  @media (max-width: 1099px)
+    height: 50px
+  @media (max-width: 599px)
+    height: 42px
+
+  &__cont
+    width: 1180px
+    height: 100%
+    margin: auto
+    display: flex
+    justify-content: space-between
+    box-sizing: border-box
+    @media (max-width: 1399px)
+      width: 100%
+      padding: 0 4vw
+    @media (max-width: 1099px)
+      display: flex
+      align-items: center
+      padding: 0 20px
+    @media (max-width: 599px)
+      padding: 0 16px
+
+  &__nav
+    height: 100%
+    @media (max-width: 1269px)
+      width: 34%
+    @media (max-width: 1099px)
+      display: none
+
+  &__list
+    min-width: 400px
+    height: 100%
+    display: flex
+    align-items: center
+    margin: 0
+    padding: 0
+    @media (max-width: 1269px)
+      min-width: auto
+      justify-content: space-between
+    &__item
+      height: 100%
+      margin: 0 0 0 40px
+      list-style: none
+      &:first-of-type
+        margin: 0
+      @media (max-width: 1269px)
+        margin: 0 0 0 16px
+        &:first-of-type
+          margin: 0
+    &__link
+      width: 100%
+      height: 100%
+      display: inline-block
+      font-family: "CeraRoundPro-bold"
+      line-height: 32px
+      color: #FFF
+      text-decoration: none
+      &:hover, &:focus, &:active
+        color: $yellow
+        transition: .2s
+
+  &__social
+    width: 566px
+    height: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    background: url("../img/baby-photo.jpg") no-repeat
+    overflow: hidden
+    z-index: 9
+    &:before
+      width: 30px
+      height: 100%
+      content: ""
+      display: block
+      left: -1px
+      top: 0
+      position: absolute
+      clip-path: polygon(100% 0, 0 0, 0 100%)
+      background-color: #A7A7A7
+      z-index: 9
+    &:after
+      width: 30px
+      height: 100%
+      content: ""
+      display: block
+      right: -1px
+      top: 0
+      position: absolute
+      clip-path: polygon(100% 100%, 100% 0, 0 100%)
+      background-color: #A7A7A7
+      z-index: 9
+    @media (max-width: 1269px)
+      width: 30%
+      background-position: center
+    @media (max-width: 1099px)
+      display: none
+
+  &__overlay
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    position: absolute
+    background: linear-gradient(to right, rgba(255, 32, 18, 0.6) 0%, rgba(255, 210, 0, 0.5) 100%)
+    z-index: -9
+
+  &__links
+    width: 100%
+    height: 100%
+    display: flex
+    max-width: 114px
+    display: flex
+    justify-content: space-between
+    z-index: 99
+    @media (max-width: 1269px)
+      max-width: 100%
+      padding: 0 6vw
+
+  &__link
+    padding: 0 10px
+    display: flex
+    align-items: center
+    color: #FFF
+    text-decoration: none
+    box-sizing: border-box
+    transition: .2s
+    &:hover
+      transform: rotate(20deg)
+      opacity: .5
+
+  &__p
+    margin: 0 0 0 20px
+    color: #FFF
+    @media (max-width: 1269px)
+      display: none
+
+  &__auth
+    display: flex
+    align-items: center
+    color: #FFF
+    i
+      margin: 2px 4px 0 0
+    a
+      padding: 0 4px
+      color: #FFF
+      font-family: "CeraRoundPro-bold"
+      text-decoration: none
+      transition: .2s
+      &:hover
+        color: $yellow
+    @media (max-width: 1099px)
+      display: none

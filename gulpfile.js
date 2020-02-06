@@ -4,7 +4,6 @@ const gulp         = require('gulp'),
       browserSync  = require('browser-sync').create();
       concat       = require('gulp-concat'),
       uglify       = require('gulp-uglify'),
-      cssnano      = require('gulp-cssnano'),
       rename       = require('gulp-rename'),
       del          = require('del'),
       sourcemaps   = require('gulp-sourcemaps'),
@@ -12,9 +11,10 @@ const gulp         = require('gulp'),
       realFavicon  = require('gulp-real-favicon');
       fs           = require('fs');
 
+
 const paths = {
   styles: {
-    src:  'app/catalog/view/theme/fancy.shop/sass/stylesheet.sass',
+    src:  'app/catalog/view/theme/fancy.shop/sass/**/**/**/*.sass',
     dest: 'app/catalog/view/theme/fancy.shop/css'
   },
   scripts: {
@@ -26,9 +26,11 @@ const paths = {
   }
 }
 
+
 function reload() {
   browserSync.reload();
 }
+
 
 function style() {
   /* Компиляция stylesheet.sass */
@@ -39,12 +41,12 @@ function style() {
       .pipe(sass())
       .on('error', sass.logError)
       .pipe(concat('stylesheet.min.css'))
-      .pipe(cssnano())
       .pipe(cleanCSS())
       .pipe(gulp.dest(paths.styles.dest))
       .pipe(browserSync.reload({ stream: true }))
   );
 }
+
 
 function script() {
   /* Объединение и сжатие скриптов */
@@ -58,6 +60,7 @@ function script() {
   );
 }
 
+
 function watch() {
   /* Отслеживание php/wtig/sass */
   console.log('\n' + '* Отслеживание php/wtig/sass *');
@@ -69,6 +72,7 @@ function watch() {
   gulp.watch(paths.twig.src).on('change', browserSync.reload);
   gulp.watch(paths.scripts.src, reload);
 }
+
 
 exports.style   = style;
 exports.script  = script;

@@ -1,0 +1,33 @@
+.about
+  margin: 80px 0 60px 0
+  display: flex
+  @media (max-width: 1199px)
+    flex-direction: column
+
+  &__img
+    width: 100%
+    max-width: 444px
+    min-height: 318px
+    max-height: 318px
+    @media (max-width: 1199px)
+      max-width: 600px
+      min-height: 100%
+
+  &__text
+    margin: 0 0 0 20px
+    display: flex
+    flex-direction: column
+    @media (max-width: 1199px)
+      margin: 20px 0 0 0
+
+  &__title
+    margin: 0 0 20px 0
+    color: $black
+    font-size: 24px
+    font-family: "CeraRoundPro-black"
+
+  &__p
+    margin: 0
+    color: $dark-gray
+    font-size: 16px
+    line-height: 24px

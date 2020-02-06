@@ -1,0 +1,214 @@
+/* Variables and class styles
+   ========================================================================== */
+
+$main:         #FF2012
+$star:         #FFA901
+$yellow:       #FCFF6B
+$green:        #00E369
+$light-green:  #00FFB8
+$blue:         #0072FF
+$pink:         #FF0f7E
+
+$black:        #424242
+$dark-gray:    #7D7D7D
+$light-gray:   #BBBBBB
+$border-color: #F0F0F0
+
+.accent-text
+  color: #FF2012
+
+.green
+  background-color: $green !important
+
+
+/* Common styles
+   ========================================================================== */
+
+// Button common styles
+.btn
+  color: #FFF
+  font-size: 14px
+  font-family: "CeraRoundPro-black"
+  text-align: center
+  text-transform: uppercase
+  text-shadow: 0px 1px 2px #00000078
+  letter-spacing: 0.05em
+  background: $main
+  border: none
+  border-bottom: 3px solid #C61A0F
+  border-radius: 5px
+  position: relative
+  cursor: pointer
+  opacity: 1
+  outline: none
+  overflow: hidden
+  transition: .2s
+  &:active
+    top: 2px
+
+@keyframes slideme
+  0%
+    left: -50%
+    margin-left: 0
+  100%,30%
+    left: 80%
+    margin-left: 80px
+
+@-webkit-keyframes slideme
+  0%
+    left: -50%
+    margin-left: 0
+  100%,30%
+    left: 80%
+    margin-left: 80px
+
+
+// Catalog button in header (.header) block
+.btn-cat
+  width: 120px
+  height: 34px
+  padding: 0 15px
+  display: flex
+  align-items: center
+  justify-content: space-between
+  position: relative
+  background: $main
+  border: none
+  border-radius: 5px
+  box-sizing: border-box
+  color: #FFF
+  text-shadow: 0px 1px 2px #00000078
+  cursor: pointer
+  outline: none
+  overflow: hidden
+  transition: .2s
+  z-index: 99999
+  &__icon
+    width: 24px
+    height: 34px
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+    overflow: hidden
+    &:before
+      width: auto
+      height: 100%
+      content: "\274c"
+      display: block
+      top: -100%
+      left: 0
+      font-size: 20px
+      font-family: "Fancyshop-icons"
+      line-height: 34px
+      position: absolute
+      transition: .1s
+    i
+      width: 24px
+      height: 100%
+      font-size: 24px
+      line-height: 34px
+      pointer-events: none
+      top: 0
+      left: 0
+      position: absolute
+      transition: .1s
+  &:hover
+    background: darken($main, 8%)
+    box-shadow: inset -3px 8px 12px 0px #0000001f
+  span
+    bottom: 1px
+    position: relative
+    font-weight: 600
+    letter-spacing: 0.4px
+    pointer-events: none
+  @media (max-width: 1099px)
+    order: 1
+  @media (max-width: 599px)
+    width: 35px
+    height: 28px
+    padding: 0
+    justify-content: center
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25)
+    &__icon
+      width: 18px
+      height: 28px
+      &:before
+        font-size: 18px
+        line-height: 28px
+      i
+        width: 18px
+        font-size: 20px
+        line-height: 28px
+    span
+      display: none
+
+  &--active
+    background: darken($main, 8%)
+    box-shadow: inset -3px 8px 12px 0px #0000001f
+    .btn-cat__icon
+      &:before
+        top: 0
+      i
+        top: 100%
+
+
+// Search button in header (.header) block
+.btn-search
+  width: 60px
+  height: 32px
+  border: none
+  padding: 0
+  display: flex
+  align-items: center
+  justify-content: center
+  border-top-right-radius: 20px
+  border-bottom-right-radius: 20px
+  background: $main
+  color: #FFF
+  cursor: pointer
+  transition: .2s
+  &:hover
+    background: darken($main, 10%)
+  @media (max-width: 1099px)
+    height: 35px
+  @media (max-width: 599px)
+    height: 30px
+
+
+// Heading styles
+.title
+  &--white
+    color: #FFF
+
+
+// Breadcrumb styles
+.breadcrumb
+  padding: 0
+  margin: 0
+  li
+    margin: 0 6px 0 0
+    display: inline-block
+    list-style: none
+    &:last-of-type
+      margin: 0
+      a
+        &:after
+          display: none
+  a
+    color: $dark-gray
+    font-size: 14px
+    font-family: "CeraRoundPro-medium"
+    text-decoration: none
+    transition: .2s
+    &:after
+      content: "\f105"
+      margin: 0 0 0 10px
+      display: block
+      display: inline-block
+      color: $light-gray
+      font-family: "Font Awesome 5 Pro"
+      text-rendering: auto
+      -webkit-font-smoothing: antialiased
+    &:hover
+      color: $main

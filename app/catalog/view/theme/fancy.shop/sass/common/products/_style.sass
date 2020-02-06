@@ -1,0 +1,281 @@
+.products
+  margin: 80px 0 0 0
+  .swiper
+    position: relative
+  .swiper-button
+    &-prev
+      top: calc(50% - 8px)
+      left: -30px
+      color: $black
+      font-size: 20px
+      outline: none
+      &:after
+        content: "\f137"
+        font-size: 34px
+      @media (maxgulp-width: 1239px)
+        left: 0
+    &-next
+      top: calc(50% - 8px)
+      right: -30px
+      color: $black
+      font-size: 20px
+      outline: none
+      &:after
+        content: "\f105"
+        font-size: 34px
+      @media (max-width: 1239px)
+        right: 0
+
+  &__title
+    width: 100%
+    margin: 0
+    color: $black
+    font-size: 24px
+    font-family: "CeraRoundPro-black"
+
+  &__subtitle
+    width: 100%
+    display: inline-block
+    margin: 10px 0 0 0
+    color: $dark-gray
+    font-size: 16px
+    font-family: "CeraRoundPro-bold"
+
+  &__swiper
+    margin: 40px 0 0 0
+
+  &__cat
+    margin: 20px 0 60px 0
+    position: relative
+    &:before
+      width: 100%
+      height: 100%
+      content: ""
+      display: block
+      top: 0
+      left: 0
+      position: absolute
+      background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0.5) 4%, rgba(255, 255, 255, 0) 10%)
+      pointer-events: none
+      z-index: 99
+
+    &__link
+      display: flex
+      flex-direction: column
+      cursor: pointer
+      &:hover
+        span
+          color: #000
+        .products__cat__img-cont
+          &:after
+            clip-path: circle(100% at 100% 100%)
+
+
+    &__img-cont
+      width: 156px
+      height: 104px
+      display: flex
+      position: relative
+      overflow: hidden
+      border-radius: 5px
+      &:before
+        width: 100%
+        height: calc(100% - 10px)
+        content: ""
+        display: block
+        bottom: 0
+        left: 0
+        position: absolute
+        background: #F0F0F0
+        border-radius: 5px
+        z-index: 9
+        transition: .2s
+      &:after
+        width: 100%
+        height: calc(100% - 10px)
+        content: ''
+        display: block
+        bottom: 0
+        left: 0
+        position: absolute
+        clip-path: circle(0% at 100% 100%)
+        background: $light-green
+        border-radius: 5px
+        transition: .2s ease-out
+        z-index: 99
+
+    &__img
+      width: 100%
+      height: auto
+      position: relative
+      z-index: 999
+      opacity: 1
+      transition: .2s
+
+    &__title
+      margin: 6px 0 0 0
+      display: inline-block
+      color: $dark-gray
+      font-size: 14px
+      font-family: "CeraRoundPro-bold"
+      transition: .2s
+
+    &-btn-next
+      &:after
+        content: "\f105" !important
+
+    &-btn-prev
+      &:after
+        content: "\f104" !important
+
+    .swiper-wrapper
+      margin: 0 !important
+    .swiper-slide
+      width: auto !important
+
+
+.product-item
+  width: 224px
+  min-height: 376px
+  padding: 40px 0 8px 0
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  position: relative
+  &__tag
+    display: flex
+    align-items: center
+    justify-content: center
+    top: 0
+    left: 0
+    position: absolute
+    color: #FFF
+    border-radius: 5px
+    span
+      padding: 6px 10px
+      position: relative
+      font-family: "CeraRoundPro-black"
+      text-shadow: 0 1px 2px #0000002e
+      background-color: $pink
+      border-radius: 5px
+      z-index: 99
+    .flag
+      width: 20px
+      height: 100%
+      content: ""
+      display: block
+      top: 0
+      left: calc(100% - 13px)
+      position: absolute
+      background-color: inherit
+      clip-path: polygon(70% 49%, 100% 100%, 0 100%, 0 0, 100% 0)
+      z-index: -9
+
+  &__img-cont
+    width: 100%
+    height: 200px
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    cursor: pointer
+    &:hover
+      .swiper-pagination
+        opacity: 1
+    .swiper-button
+      &-prev
+        left: 0
+        display: none
+      &-next
+        right: 0
+        display: none
+    .swiper-pagination
+      display: flex
+      bottom: 0
+      opacity: 0
+      &-bullet
+        width: 100%
+        height: 3px
+        padding: 0 8px 0 0 !important
+        border-radius: 20px !important
+        background: lighten($light-gray, 8%) !important
+        position: relative
+        opacity: 1 !important
+        &:after
+          width: 100%
+          height: 200px
+          content: ""
+          display: block
+          bottom: 0
+          left: 0
+          position: absolute
+        &:last-of-type
+          margin: 0 !important
+        &-active
+          background: $main !important
+          --swiper-theme-color: #FF2012
+      @media (max-width: 599px)
+        display: none
+
+  &__img
+    width: auto
+    height: auto
+    display: block
+    max-width: 100%
+    max-height: 100%
+    margin: auto
+
+  &__title
+    margin: 20px 0 0 0
+    color: $black
+    font-size: 16px
+
+  &__rate
+    margin: 12px 0 auto 0
+    i
+      color: $star
+      font-size: 14px
+
+  &__price
+    margin: auto 0 0 0
+    color: #000
+    font-size: 22px
+    font-family: "CeraRoundPro-bold"
+    white-space: nowrap
+    &-current
+      color: $main
+    &-prev
+      margin: 0 0 0 4px
+      color: $light-gray
+      font-size: 16px
+      text-decoration: line-through
+
+  &__btn
+    width: 136px
+    height: 40px
+    margin: 12px 0 0 0
+    padding: 2px 0 0
+    &:after
+      width: 80px
+      height: 300px
+      content: ""
+      display: block
+      margin-left: 0
+      opacity: .6
+      left: -160%
+      top: -150px
+      position: absolute
+      background: linear-gradient(to right,transparent 0,#FFF 50%,transparent 100%)
+      z-index: 9
+      -webkit-transform: rotate(45deg)
+      transform: rotate(-45deg)
+      transition: all .1s
+    &:hover
+      box-shadow: 0 4px 6px rgba(255,60,48,.75)
+      &:after
+        animation: slideme 3s infinite
+        -webkit-animation-delay: .2s
+        animation-delay: .2s
+
+.product-images
+  width: 100%

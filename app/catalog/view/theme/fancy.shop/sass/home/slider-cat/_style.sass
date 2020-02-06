@@ -1,0 +1,47 @@
+.slider-cat
+  position: relative
+  &:before
+    width: 100%
+    height: 2px
+    content: ""
+    display: block
+    left: 0
+    bottom: 0
+    position: absolute
+    background: linear-gradient(90deg, #FF4A3E 0%, #FFD200 100%)
+  .swiper-slide
+    width: auto !important
+    .swiper-button
+      &-prev
+        top: 21px
+        left: -36px
+        color: $black
+        outline: none
+        &:after
+          font-size: 24px
+      &-next
+        top: 21px
+        right: -36px
+        color: $black
+        outline: none
+        &:after
+          font-size: 24px
+  ul
+    padding: 0
+    display: flex
+
+  &__item
+    list-style: none
+
+  &__link
+    display: block
+    padding: 12px 0
+    font-family: "CeraRoundPro-bold"
+    box-sizing: border-box
+    cursor: pointer
+    transition: .2s
+    &:hover, &:focus
+      color: $main
+    &:active
+      color: lighten($main, 30%)
+      transition: .1s

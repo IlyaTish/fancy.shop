@@ -314,6 +314,27 @@ template
 
 /* end normalize.css */
 
+
+::-webkit-scrollbar
+  width: 8px
+  background: #DEDEDE
+::-webkit-scrollbar-thumb
+  background: #ADADAD
+  border-radius: 20px
+
+body
+  height: 100%
+  overflow-y: scroll
+  overflow-x: hidden
+
+.wrapper
+  display: flex
+  flex-direction: column
+  min-height: 100%
+
+.content
+  flex: 1 0 auto
+
 .container
   width: 1180px
   margin: 0 auto
@@ -330,6 +351,18 @@ template
     padding: 0 20px
   @media (max-width: 599px)
     padding: 0 16px
+
+.box
+  padding: 20px 0 0 0
+  margin-top: 32px
+  border: 1px solid #F0F0F0
+  background: #FFF
+  border-radius: 10px 10px 0 0
+  box-sizing: border-box
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.03)
+
+.inner
+  background: #FBFBFB
 
 .swiper-button-prev, .swiper-button-next
   color: #FFF
@@ -369,18 +402,14 @@ template
       opacity: .2
       transition: none
 
-@import variables
-@import title
 
-/* import buttons*/
-@import common/btn/btn
-@import common/btn-cat/btn-cat
-@import common/btn-search/btn-search
+@import common
 
-/* import common blocks */
-@import common/header/header
-@import common/products/products
-@import common/footer/footer
+/* Import common blocks */
+@import common/header/style
+@import common/products/style
+@import common/footer/style
 
-/* import pages*/
-@import home/home
+/* Import pages*/
+@import home/style
+@import category/style

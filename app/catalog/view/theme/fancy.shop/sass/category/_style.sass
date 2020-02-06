@@ -1,0 +1,111 @@
+.cat
+  .swiper-viewport, .cat-brands, .cat-list__img
+    display: none
+
+  &__wrapper
+    display: flex
+    justify-content: space-between
+    border-top: 1px solid $border-color
+
+  #content
+    width: 100%
+    display: flex
+
+  &__breadcrumb
+    padding: 0 20px
+    box-sizing: border-box
+
+  &__title
+    padding: 0 20px
+    margin: 12px 0 20px 0
+    color: $black
+    font-size: 24px
+    box-sizing: border-box
+
+  .cat-menu
+    min-width: 260px
+    border-right: 1px solid $border-color
+    &__cont
+      padding: 12px 20px 0 0
+      box-sizing: border-box
+
+  &-list
+    max-height: 240px
+    display: block
+    padding: 0
+    margin: 0
+    overflow: hidden
+    transition: max-height .1s ease-in-out
+    &--active
+      max-height: 0
+    &:hover
+      overflow-y: scroll
+      &::-webkit-scrollbar
+        width: 4px
+        background: #DEDEDE
+        border-radius: 20px
+      &::-webkit-scrollbar-thumb
+        background: #ADADAD
+        border-radius: 20px
+    &__title
+      width: 100%
+      padding: 0 0 0 20px
+      margin: 0 0 10px 0
+      display: inline-block
+      position: relative
+      color: $black
+      font-size: 16px
+      font-family: "CeraRoundPro-bold"
+      box-sizing: border-box
+      cursor: pointer
+      &:after
+        content: "\f107"
+        margin: 0 0 0 10px
+        display: block
+        display: inline-block
+        color: $black
+        font-family: "Font Awesome 5 Pro"
+        text-rendering: auto
+        -webkit-font-smoothing: antialiased
+        bottom: 0
+        right: 0
+        position: absolute
+        transition: .1s
+      &--active
+        color: #000
+        &:after
+          color: #000
+          transform: rotate(180deg)
+      &:hover
+        color: #000
+        &:after
+          color: #000
+    &__item
+      list-style: none
+      &:last-of-type
+        margin: 0
+    &__link
+      width: 100%
+      display: inline-block
+      padding: 6px 0 6px 20px
+      font-size: 14px
+      color: $dark-gray
+      text-decoration: none
+      box-sizing: border-box
+      transition: .1s
+      &:hover
+        color: $main
+
+  &-products
+    width: 100%
+    padding: 20px 20px 40px 20px
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    box-sizing: border-box
+
+    .product-item
+      width: 260px
+      margin: 0 0 40px 0
+      &__img-cont
+        .swiper-pagination
+          bottom: 0

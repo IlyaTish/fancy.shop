@@ -1,0 +1,182 @@
+.footer
+  width: 100%
+  flex: 0 0 auto
+  color: #FFF
+  background: linear-gradient(90deg, #FF2012 0%, #FFDB31 130%)
+  @media (max-width: 1399px)
+    margin: 40px 0 0 0
+
+  &__cont
+    width: 1180px
+    height: 100%
+    margin: auto
+    padding: 40px 0
+    display: flex
+    justify-content: space-between
+    box-sizing: border-box
+    @media (max-width: 1399px)
+      width: 100%
+      padding: 40px 20px 20px 20px
+      justify-content: space-around
+    @media (max-width: 767px)
+      justify-content: space-between
+    @media (max-width: 599px)
+      padding: 20px 16px
+
+  &__title
+    margin: 0 0 12px 0
+    font-size: 20px
+
+  &__info
+    display: flex
+    flex-direction: column
+    font-size: 14px
+    i
+      margin: 0 6px 0 0
+    @media (max-width: 599px)
+      width: 100%
+      text-align: center
+      justify-content: center
+
+  &__phone
+    margin: 20px 0 0 0
+    opacity: 0.9
+
+  &__email
+    margin: 14px 0 0 0
+    opacity: 0.9
+
+  &__social
+    margin: 20px 0 0 0
+    &__link
+      margin: 0 8px 0 0
+      color: #FFF
+      font-size: 18px
+      text-decoration: none
+      transition: .2s
+      &:hover
+        opacity: .5
+
+  &__catalog
+    &-list
+      max-width: 530px
+      padding: 0
+      column-count: 2
+      @media (max-width: 1199px)
+        max-height: 140px
+        display: flex
+        flex-direction: column
+        column-count: 1
+        overflow-x: hidden
+        overflow-y: scroll
+      &__item
+        max-width: 290px
+        list-style: none
+        @media (max-width: 1199px)
+          max-width: 246px
+      &__link
+        padding: 6px 0
+        display: inline-block
+        color: #FFF
+        font-size: 14px
+        text-decoration: none
+        opacity: 0.9
+        transition: .2s
+        &:hover, &:focus, &:active
+          opacity: 0.6
+    @media (max-width: 599px)
+      display: none
+
+  &__menu
+    &-list
+      padding: 0
+      &__item
+        max-width: 290px
+        list-style: none
+      &__link
+        padding: 6px 0
+        display: inline-block
+        color: #FFF
+        font-size: 14px
+        text-decoration: none
+        transition: .2s
+        opacity: 0.9
+        &:hover, &:focus, &:active
+          opacity: 0.6
+    @media (max-width: 599px)
+      display: none
+
+  &__feedback
+    @media (max-width: 899px)
+      display: none
+
+  &__form
+    width: 186px
+    margin: 24px 0 0 0
+    display: flex
+    flex-direction: column
+
+  &__input
+    width: 100%
+    height: 26px
+    padding: 0 10px
+    border: none
+    border-radius: 5px
+    background: #FFF
+    box-sizing: border-box
+    outline: none
+    &:last-of-type
+      margin: 8px 0 0 0
+
+  &__btn
+    width: 140px
+    height: 32px
+    margin: 10px 0 0 0
+
+
+// Footer bottom block
+.footer-bottom
+  width: 100%
+  background: #ffffff17
+
+  &__cont
+    width: 1180px
+    height: 100%
+    margin: auto
+    padding: 20px 0
+    display: flex
+    justify-content: space-between
+    box-sizing: border-box
+    @media (max-width: 1399px)
+      width: 100%
+      padding: 20px 20px
+    @media (max-width: 1199px)
+      flex-direction: column
+    @media (max-width: 599px)
+      padding: 20px 16px
+
+  &__p
+    margin: 0
+    font-size: 14px
+    font-family: "CeraRoundPro-regular"
+    @media (max-width: 1199px)
+      text-align: center
+      &:first-of-type
+        margin: 0 0 6px 0
+    @media (max-width: 599px)
+      &:first-of-type
+        margin: 0
+      &:last-of-type
+        display: none
+
+  &__link
+    margin: 0 0 0 10px
+    color: #FFF
+    font-size: 14px
+    font-family: "CeraRoundPro-regular"
+    text-decoration: none
+    transition: .2s
+    &:first-of-type
+      margin: 0
+    &:hover, &:focus, &:active
+      opacity: 0.6

@@ -1,168 +1,258 @@
 {{ header }}
-<div id="product-category" class="container">
-  <ul class="breadcrumb">
-    {% for breadcrumb in breadcrumbs %}
-    <li>
-      <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
-    </li>
-    {% endfor %}
-  </ul>
+<div class="wrapper inner">
+  <div id="product-category" class="cat container content box">
+    <ul class="cat__breadcrumb breadcrumb">
+      {% for breadcrumb in breadcrumbs %}
+      <li>
+        <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <h1 class="cat__title">{{ heading_title }}</h1>
 
-  <div class="row">{{ column_left }}
-    {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
-    {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
-    {% else %}
-    {% set class = 'col-sm-12' %}
-    {% endif %}
-    <div id="content" class="{{ class }}">{{ content_top }}
-      <h1>{{ heading_title }}</h1>
-      <div id="child-cat" class="cat">
-        <div class="cat__cont">
-          {% if categories %}
-          {% if categories|length <= 5 %}
-          <ul class="cat-list">
-            {% for category in categories %}
-            <li class="cat-list__item">
-              <a class="cat-list__link" href="{{ category.href }}">{{ category.name }}</a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% else %}
-          {% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
-          <ul class="cat-list">
-            {% for child in category %}
-            <li class="cat-list__item">
-              <a class="cat-list__link" href="{{ child.href }}">
-                <img class="cat-list__img" src="{{ child.thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}">
-                <span>{{ child.name }}</span>
-              </a>
-            </li>
-            {% endfor %}
-          </ul>
-          {% endfor %}
-          {% endif %}
-          {% endif %}
-        </div>
-      </div>
-
-      {% if products %}
-      <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="form-group"><a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a></div>
-        </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-
-
-
-              {% for sorts in sorts %}
-              {% if sorts.value == '%s-%s'|format(sort, order) %}
-
-
-
-              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
-
-
-
-              {% else %}
-
-
-
-              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
-
-
-
-              {% endif %}
+    <div class="cat__wrapper">
+      <div id="content">
+        <div class="cat-menu">
+          <div class="cat-menu__cont" id="menu">
+            {{ content_top }}
+            {% if categories %}
+            <span class="cat-list__title">Категории</span>
+            <ul class="cat-list">
+              {% if categories|length <= 5 %}
+              {% for category in categories %}
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="{{ category.href }}">{{ category.name }}</a>
+              </li>
               {% endfor %}
-
-
-
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-
-
-
-              {% for limits in limits %}
-              {% if limits.value == limit %}
-
-
-
-              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
-
-
-
               {% else %}
-
-
-
-              <option value="{{ limits.href }}">{{ limits.text }}</option>
-
-
-
-              {% endif %}
+              {% for category in categories|batch((categories|length / 4)|round(1, 'ceil')) %}
+              {% for child in category %}
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="{{ child.href }}">
+                  <img class="cat-list__img" src="{{ child.thumb }}" alt="{{ heading_title }}" title="{{ heading_title }}">
+                  <span>{{ child.name }}</span>
+                </a>
+              </li>
               {% endfor %}
-
-
-
-            </select>
+              {% endfor %}
+              {% endif %}
+              {% endif %}
+            </ul>
+          </div>
+          <div class="cat-menu__cont">
+            <span class="cat-list__title">Бренды</span>
+            <ul class="cat-list cat-list--top">
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-1" type="checkbox" name="Bartollino" value="Bartollino">
+                  <label for="brand-1">Bartollino</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-2" type="checkbox" name="Navigation Caravel">
+                  <label for="brand-2">Navigation Caravel</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-3" type="checkbox" name="Anex Sport" value="Anex Sport">
+                  <label for="brand-3">Anex Sport</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-4" type="checkbox" name="Adamex Barletta" value="Adamex Barletta">
+                  <label for="brand-4">Adamex Barletta</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-5" type="checkbox" name="Noordi Fjordi" value="Noordi Fjordi">
+                  <label for="brand-5">Noordi Fjordi</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-6" type="checkbox" name="Peg Perego" value="Peg Perego">
+                  <label for="brand-6">Peg Perego</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-7" type="checkbox" name="Reindeer" value="Reindeer">
+                  <label for="brand-7">Reindeer</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-8" type="checkbox" name="Inglesina Sofia" value="Inglesina Sofia">
+                  <label for="brand-8">Inglesina Sofia</label>
+                </a>
+              </li>
+              <li class="cat-list__item">
+                <a class="cat-list__link" href="">
+                  <input id="brand-9" type="checkbox" name="Capella" value="Capella">
+                  <label for="brand-9">Capella</label>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
-      <div class="row"> {% for product in products %}
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
-            <div>
-              <div class="caption">
-                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
-                <p>{{ product.description }}</p>
-                {% if product.price %}
-                <p class="price"> {% if not product.special %}
-                  {{ product.price }}
-                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
-                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
-                {% endif %}
-                {% if product.rating %}
-                <div class="rating"> {% for i in 1..5 %}
-                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>{% endif %}
-                  {% endfor %} </div>
-                {% endif %} </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
-              </div>
+        <div class="cat-products">
+          <div class="product-item">
+            <div class="product-item__tag">
+              <span>
+                -20%
+                <div class="flag"></div>
+              </span>
             </div>
+            <a href="" class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/baby-carriage.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Bartollino Adbor</h3>
+            <div class="product-item__rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="product-item__price">
+              <span class="product-item__price-current">16 500 Р.</span>
+              <span class="product-item__price-prev">16 500 Р.</span>
+            </div>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item">
+            <div class="product-item__tag">
+              <span>
+                3 в 1
+                <div class="flag"></div>
+              </span>
+            </div>
+            <a class="product-item__img-cont swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="product-item__img product-item__img--main" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-01.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="product-item__img product-item__img--dop" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-02.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="product-item__img product-item__img--dop" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-03.jpg" alt="">
+                </div>
+              </div>
+
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <div class="swiper-pagination"></div>
+            </a>
+            <h3 class="product-item__title">Коляска Adamex Barletta 2 в 1</h3>
+            <div class="product-item__rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="product-item__price">
+              24 200 Р.
+            </span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item">
+            <div class="product-item__tag">
+              <span class="green">
+                2 в 1
+                <div class="flag"></div>
+              </span>
+            </div>
+            <a class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-05.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Коляска 2 в 1 Noordi Fjordi</h3>
+            <div class="product-item__rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <span class="product-item__price">
+              36 400 Р.
+            </span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item">
+            <a class="product-item__img-cont swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img class="product-item__img product-item__img--main" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-02.jpg" alt="">
+                </div>
+                <div class="swiper-slide">
+                  <img class="product-item__img product-item__img--dop" src="catalog/view/theme/fancy.shop/img/common/for-moms/product-img-05.jpg" alt="">
+                </div>
+              </div>
+
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+
+              <div class="swiper-pagination"></div>
+            </a>
+            <h3 class="product-item__title">Коляска-трость Peg Perego Pliko Min</h3>
+            <div class="product-item__rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <span class="product-item__price">12 600 Р.</span>
+            <button class="product-item__btn btn">в корзину</button>
+          </div>
+          <div class="product-item">
+            <div class="product-item__tag">
+              <span>
+                -20%
+                <div class="flag"></div>
+              </span>
+            </div>
+            <a href="" class="product-item__img-cont">
+              <img class="product-item__img" src="catalog/view/theme/fancy.shop/img/common/popular/baby-carriage.jpg" alt="">
+            </a>
+            <h3 class="product-item__title">Bartollino Adbor</h3>
+            <div class="product-item__rate">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <div class="product-item__price">
+              <span class="product-item__price-current">16 500 Р.</span>
+              <span class="product-item__price-prev">16 500 Р.</span>
+            </div>
+            <button class="product-item__btn btn">в корзину</button>
           </div>
         </div>
-        {% endfor %} </div>
-      <div class="row">
-        <div class="col-sm-6 text-left">{{ pagination }}</div>
-        <div class="col-sm-6 text-right">{{ results }}</div>
       </div>
-      {% endif %}
-      {% if not categories and not products %}
-      <p>{{ text_empty }}</p>
-      <div class="buttons">
-        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
-      </div>
-      {% endif %}
-      {{ content_bottom }}</div>
-    {{ column_right }}</div>
+    </div>
+  </div>
+  {{ content_bottom }}
 </div>
 {{ footer }}
+
+<script>
+$(document).ready(function() {
+  $('.cat-list__title').on('click', function() {
+    /* Act on the event */
+    var $this   = $(this),
+        catList = $this.parent().find('.cat-list')
+
+    $this.toggleClass('cat-list__title--active');
+    catList.toggleClass('cat-list--active');
+  });
+});
+</script>
